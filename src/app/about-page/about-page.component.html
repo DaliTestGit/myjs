@@ -1,0 +1,29 @@
+<h4>** about-page **</h4>
+<p>
+  This is the content of the About page
+</p>
+
+<br/>
+<!-- HERE! the response!! -->
+<section *ngIf="!isLoading && !errorMessage">
+  <label> <b>==> The front is connected to the following backend</b></label>
+  <p style="color: green"><b>{{backenInfoResult}}</b></p>
+</section>
+
+<p style="color: green"><b>{{backenInfoResultAsyncPipe | async}}</b></p>
+
+<!-- HERE! Spinner!! -->
+<section *ngIf="isLoading && !errorMessage" style="color: dodgerblue">
+  Calling Backend WS...
+</section>
+
+<!-- HERE: added this error message -->
+<section *ngIf="errorMessage" class="error">
+  {{errorMessage}}
+</section>
+
+<br/>
+<br/>
+<button (click)="getBackendInfo()">Refresh</button>
+
+

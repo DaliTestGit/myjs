@@ -1,10 +1,10 @@
-import { AngularGetStartedPage } from './app.po';
+import { EceFrontPage } from './app.po';
 
-describe('angular-get-started App', () => {
-  let page: AngularGetStartedPage;
+describe('ECE Front App', () => {
+  let page: EceFrontPage;
 
   beforeEach(() => {
-    page = new AngularGetStartedPage();
+    page = new EceFrontPage();
   });
 
   it('should display message saying app works', () => {

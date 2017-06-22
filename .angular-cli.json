@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "angular-get-started"
+    "name": "d5-ece-front"
   },
   "apps": [
     {
@@ -25,7 +25,9 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "prod": "environments/environment.prod.ts",
+        "integ": "environments/environment.integ.ts",
+        "qa": "environments/environment.qa.ts"
       }
     }
   ],

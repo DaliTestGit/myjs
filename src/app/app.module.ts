@@ -4,17 +4,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AboutBackendService } from './services/about/about-backend.service'
+
+import { appRouterModule } from './app.routes';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    AboutPageComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    appRouterModule
   ],
-  providers: [],
+  providers: [AboutBackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
