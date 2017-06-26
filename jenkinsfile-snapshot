@@ -1,0 +1,34 @@
+#!/usr/bin/env groovy
+
+// Use node dedicated to Java compilation
+node('SlaveJava') {
+
+    def mailRecipients = 'externe.mohamed_ali.ben_taher@allianz.fr'
+
+    try {
+        // Clean workspace
+        stage('Clean workspace') {
+            deleteDir()
+        }
+
+        // Download source code
+        stage('Preparation') {
+          checkout scm
+        }
+
+        // Launch Maven
+        stage('Build') {
+
+            // Tell Mailer that it's a success
+            currentBuild.result = 'SUCCESS'
+        }
+
+    } catch(e) {
+        // Tell Mailer that something went wrong
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        // Send mail if task broke or is repaired
+        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: mailRecipients, sendToIndividuals: true])
+    }
+}

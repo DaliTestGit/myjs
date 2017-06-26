@@ -1,0 +1,14 @@
+#!/usr/bin/env groovy
+
+def npmTask(String command) {
+  def nodeHome = tool 'nodejs5'
+  env.PATH="${env.PATH}:${nodeHome}/bin"
+
+    if (isUnix()) {
+      sh "${command}"
+    } else {
+      bat (/"${command}/)
+    }
+}
+
+return this

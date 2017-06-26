@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 
-import { AboutBackendService } from "../services/about/about-backend.service";
+import { AboutBackendService } from "../../services/about/about-backend.service";
 
 @Component({
   selector: 'app-about-page',
@@ -11,27 +11,31 @@ import { AboutBackendService } from "../services/about/about-backend.service";
 })
 export class AboutPageComponent implements OnInit {
 
-  backenInfoResultAsyncPipe: Observable<string>;
-  backenInfoResult: string;
-  errorMessage: string = '';
-  isLoading: boolean = true;
+  backendInfoResultAsyncPipe: Observable<string>;
+  backendInfoResult: string;
+  errorMessage = '';
+  isLoading = true;
 
-  constructor(private aboutBackendService:AboutBackendService) { }
+  constructor(private aboutBackendService: AboutBackendService ) { }
 
   ngOnInit() {
     this.getBackendInfo();
   }
 
   getBackendInfo() {
-    console.log('===========>AboutPageComponent.getBackenInfo');
+    console.log('===========>AboutPageComponent.getBackendInfo');
     this.isLoading = true;
+
+    // use the old subscribe binding
     this.aboutBackendService
       .getBackendInfo()
       .subscribe(
-        /* happy path */ p => this.backenInfoResult = p,
+        /* happy path */ p => this.backendInfoResult = p,
         /* error path */ e => this.errorMessage = e,
         /* onComplete */ () => this.isLoading = false);
-    this.backenInfoResultAsyncPipe =  this.aboutBackendService.getBackendInfo();
+
+    // use the new async pipe
+    this.backendInfoResultAsyncPipe =  this.aboutBackendService.getBackendInfo();
   }
 
 }

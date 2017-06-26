@@ -6,6 +6,5 @@
 export const environment = {
   production: false,
   envName: 'development',
-  backendUrl: 'http://localhost:9000/rest',
-  version: '0.0.0'
+  backendUrl: ':9000/d5-ece-rest/'
 };

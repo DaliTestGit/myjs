@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { AboutBackendService } from './services/about/about-backend.service'
 
 import { appRouterModule } from './app.routes';
-import { HomePageComponent } from './home-page/home-page.component';
-import { AboutPageComponent } from './about-page/about-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
 
 @NgModule({
   declarations: [

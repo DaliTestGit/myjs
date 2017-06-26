@@ -7,10 +7,10 @@
 <!-- HERE! the response!! -->
 <section *ngIf="!isLoading && !errorMessage">
   <label> <b>==> The front is connected to the following backend</b></label>
-  <p style="color: green"><b>{{backenInfoResult}}</b></p>
+  <p style="color: green"><b>{{backendInfoResult}}</b></p>
 </section>
 
-<p style="color: green"><b>{{backenInfoResultAsyncPipe | async}}</b></p>
+<p style="color: green"><b>{{backendInfoResultAsyncPipe | async}}</b></p>
 
 <!-- HERE! Spinner!! -->
 <section *ngIf="isLoading && !errorMessage" style="color: dodgerblue">
